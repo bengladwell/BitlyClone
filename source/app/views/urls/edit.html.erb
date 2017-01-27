@@ -1,6 +1,6 @@
 <%= form_for @url do |f| %>
   <p>
-    http://fa.ke/<%= @url.short %>
+    <%= request.base_url %>/<%= @url.short %>
   </p>
   <p>
     <%= f.label :full, 'URL:' %>

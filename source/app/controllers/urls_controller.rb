@@ -38,6 +38,12 @@ class UrlsController < ApplicationController
 
   def short
     url = Url.find_by_short(params[:short])
-    redirect_to url ? url.full : urls_path
+    if url
+        url.count = url.count ? url.count + 1 : 0
+        url.save
+        redirect_to url.full
+    else
+      redirect_to urls_path
+    end
   end
 end

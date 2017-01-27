@@ -7,7 +7,7 @@ class Url < ActiveRecord::Base
   private
 
     def generate_short
-      self.short = SecureRandom.hex(3)
+      self.short = SecureRandom.hex(3) unless self.short
     end
 
 end
